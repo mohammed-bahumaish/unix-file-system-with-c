@@ -7,7 +7,7 @@
 #include <time.h>
 #include <fcntl.h>
 
-int main(int argc, char *argv[]) //copying ctime and mtime of argv[2] to argv[1]
+int main(int argc, char *argv[]) // copying ctime and mtime of argv[2] to argv[1]
 {
   int fd;
   struct stat statbuf_1;
@@ -19,8 +19,7 @@ int main(int argc, char *argv[]) //copying ctime and mtime of argv[2] to argv[1]
   if (stat(argv[2], &statbuf_2) < 0)
     printf("Error!\n");
   printf("Before Copying ...\n");
-  printf("Access Time %s\nModification Time%s\n", ctime(&statbuf_1.st_atime),
-  ctime(&statbuf_1.st_mtime));
+  printf("Access Time %s\nModification Time%s\n", ctime(&statbuf_1.st_atime), ctime(&statbuf_1.st_mtime));
 
   times.modtime = statbuf_2.st_mtime;
   times.actime = statbuf_2.st_mtime;
@@ -35,4 +34,3 @@ int main(int argc, char *argv[]) //copying ctime and mtime of argv[2] to argv[1]
 
   printf("Access Time %s\nModification Time%s\n", ctime(&statbuf_1.st_atime), ctime(&statbuf_1.st_mtime));
 }
-
